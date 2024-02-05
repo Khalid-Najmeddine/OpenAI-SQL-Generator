@@ -5,6 +5,14 @@ const ManyMessagesDisplay = () => {
   return (
     <div className="many-Messages-Display">
       <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
+      <OneMessageDisplay />
     </div>
   )
 }
