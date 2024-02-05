@@ -2,7 +2,9 @@ import React from 'react'
 
 const OneMessageDisplay = () => {
   return (
-    <div className="one-Message-Dispaly">OneMessageDisplay</div>
+    <div className="one-Message-Dispaly">
+      
+    </div>
   )
 }
 
