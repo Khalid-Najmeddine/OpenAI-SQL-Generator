@@ -1,6 +1,6 @@
+import {useState, useEffect, useMemo} from "react";
 import CodeDisplay from "./components/CodeDisplay";
 import ManyMessagesDisplay from "./components/ManyMessagesDisplay";
-import {useState, useEffect} from "react";
 
 interface ChatData {
   role: string;
@@ -40,9 +40,11 @@ const App = () => {
 
   console.log(chat);
 
+  const filteredUserMessages = useMemo(() => chat.filter((message) => message.role === "user"), [chat]);
+
   return (
     <div className="app">
-      <ManyMessagesDisplay />
+      <ManyMessagesDisplay userMessages={filteredUserMessages}/>
       <input value={value} onChange={valueChange}/>
       <CodeDisplay />
       <div className="button-Container">
