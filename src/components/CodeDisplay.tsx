@@ -1,6 +1,10 @@
-import React from 'react'
 
-const CodeDisplay = () => {
+
+interface CodeDisplayProps {
+  text: string;
+}
+
+const CodeDisplay = ({text}:CodeDisplayProps) => {
   return (
     <div className="code-Display">
       <div className="circle-Button-Container">
@@ -9,7 +13,7 @@ const CodeDisplay = () => {
         <button className="right button"></button>
       </div>
       <div className="code-Output">
-        <p></p>
+        <p>{text}</p>
       </div>
     </div>
   )

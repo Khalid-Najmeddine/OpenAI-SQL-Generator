@@ -1,4 +1,4 @@
-import {useState, useEffect, useMemo} from "react";
+import {useState, useMemo} from "react";
 import CodeDisplay from "./components/CodeDisplay";
 import ManyMessagesDisplay from "./components/ManyMessagesDisplay";
 
@@ -40,13 +40,20 @@ const App = () => {
 
   console.log(chat);
 
-  const filteredUserMessages = useMemo(() => chat.filter((message) => message.role === "user"), [chat]);
+  const filteredUserMessages = useMemo(() => {
+    return chat.filter((message) => message.role === "user");
+  }, [chat]);
+
+
+  const latestCode = useMemo(() => {
+    return chat.filter((message) => message.role === "assistant").pop();
+  }, [chat]);
 
   return (
     <div className="app">
       <ManyMessagesDisplay userMessages={filteredUserMessages}/>
       <input value={value} onChange={valueChange}/>
-      <CodeDisplay />
+      <CodeDisplay text={latestCode?.content || ""}/>
       <div className="button-Container">
         <button id="get-Query" onClick={getQuery}>Get Query!</button>
         <button id="clear-Chat">Clear Chat!</button>
