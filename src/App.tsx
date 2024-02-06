@@ -38,7 +38,10 @@ const App = () => {
 
   }
 
-  console.log(chat);
+const clearChat = () => {
+  setValue("");
+  setChat([]);
+}
 
   const filteredUserMessages = useMemo(() => {
     return chat.filter((message) => message.role === "user");
@@ -56,7 +59,7 @@ const App = () => {
       <CodeDisplay text={latestCode?.content || ""}/>
       <div className="button-Container">
         <button id="get-Query" onClick={getQuery}>Get Query!</button>
-        <button id="clear-Chat">Clear Chat!</button>
+        <button id="clear-Chat" onClick={clearChat}>Clear Chat!</button>
       </div>
     </div>
   );
