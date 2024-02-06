@@ -1,18 +1,18 @@
 import React from 'react'
 import OneMessageDisplay from './OneMessageDisplay'
 
-const ManyMessagesDisplay = () => {
+interface UserMessage {
+  role: string;
+  content: string;
+}
+interface MessagesDisplayProps {
+  userMessages: UserMessage[];
+}
+const ManyMessagesDisplay = ({userMessages}:MessagesDisplayProps) => {
   return (
     <div className="many-Messages-Display">
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
-      <OneMessageDisplay />
+      {userMessages.map((userMessage, _index) => 
+        <OneMessageDisplay key={_index} message={userMessage}/>)}
     </div>
   )
 }
